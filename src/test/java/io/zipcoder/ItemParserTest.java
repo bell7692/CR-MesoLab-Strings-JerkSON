@@ -71,23 +71,4 @@ public class ItemParserTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void fixCookie() {
-    }
-
-    @Test
-    public void checkName() {
-    }
-
-    @Test
-    public void checkPrice() {
-    }
-
-    @Test
-    public void checkType() {
-    }
-
-    @Test
-    public void checkExpiration() {
-    }
 }

@@ -15,12 +15,27 @@ public class Main {
 
     public static void main(String[] args) throws Exception{
         String output = (new Main()).readRawDataToString();
-        ItemParser itemParser = new ItemParser();
-        ArrayList<Item> temp = itemParser.findRawItemToArrayList(output);
-        System.out.println(temp.toString());
+        System.out.println(output);;
+        ErrorLogger errorData = new ErrorLogger();
+
+        ItemParser itemParser = new ItemParser(errorData);
+
+        ArrayList<Item> itemList = itemParser.findRawItemToArrayList(output);
+
+
+        ItemOrganizer itemOrganizer = new ItemOrganizer();
+        Iterable<OrganizedItemData> organizedItems = itemOrganizer.organizeItems(itemList);
+
+        for(OrganizedItemData organizedItemData : organizedItems) {
+            System.out.println(organizedItemData.getFormattedData());
+        }
+        String errorOutput= errorData.getFormattedError();
+        System.out.println(errorOutput);
+
+        }
         // TODO: parse the data in output into items, and display to console.
 
 
 
-    }
+
 }
